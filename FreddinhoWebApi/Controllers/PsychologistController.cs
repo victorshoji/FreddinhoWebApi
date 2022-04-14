@@ -1,4 +1,4 @@
-﻿using FredinhoWebApi.Models.Mocks;
+﻿using FreddinhoWebApi.Models.Mocks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreddinhoWebApi.Controllers
