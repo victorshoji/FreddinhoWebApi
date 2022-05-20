@@ -1,4 +1,5 @@
-﻿using FreddinhoWebApi.Models.Mocks;
+﻿using FreddinhoWebApi.Models.Entity;
+using FreddinhoWebApi.Models.Mocks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreddinhoWebApi.Controllers
@@ -8,7 +9,7 @@ namespace FreddinhoWebApi.Controllers
     public class PsychologistController : ControllerBase
     {
         [HttpGet(Name = "GetPsychologistGroup")]
-        public IList<Psychologist> Get()
+        public IList<PsychologistModel> Get()
         {
             return FillDataModels.CreatePsychologistGroup();
         }

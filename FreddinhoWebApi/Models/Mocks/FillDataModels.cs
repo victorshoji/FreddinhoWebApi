@@ -1,14 +1,16 @@
-﻿namespace FreddinhoWebApi.Models.Mocks
+﻿using FreddinhoWebApi.Models.Entity;
+
+namespace FreddinhoWebApi.Models.Mocks
 {
     public static class FillDataModels
     {
-        public static IList<Psychologist> CreatePsychologistGroup()
+        public static IList<PsychologistModel> CreatePsychologistGroup()
         {
             try
             {
-                IList<Psychologist> psychologistsGroup = new List<Psychologist>();
+                IList<PsychologistModel> psychologistsGroup = new List<PsychologistModel>();
 
-                psychologistsGroup.Add(new Psychologist()
+                psychologistsGroup.Add(new PsychologistModel()
                 {
                     Id = 1,
                     CelphoneNumber = 11985547771,
@@ -17,7 +19,7 @@
                     Location = "23°37'49.8\"S 46°35'57.1\"W"
                 });
 
-                psychologistsGroup.Add(new Psychologist()
+                psychologistsGroup.Add(new PsychologistModel()
                 {
                     Id = 2,
                     CelphoneNumber = 11985320014,
@@ -26,7 +28,7 @@
                     Location = "23°30'56.4\"S 46°29'36.1\"W"
                 });
 
-                psychologistsGroup.Add(new Psychologist()
+                psychologistsGroup.Add(new PsychologistModel()
                 {
                     Id = 3,
                     CelphoneNumber = 11974586621,
@@ -35,7 +37,7 @@
                     Location = "23°34'46.9\"S 46°24'30.2\"W"
                 });
 
-                psychologistsGroup.Add(new Psychologist()
+                psychologistsGroup.Add(new PsychologistModel()
                 {
                     Id = 4,
                     CelphoneNumber = 11996568653,
@@ -44,7 +46,7 @@
                     Location = "23°34'46.9\"S 46°24'30.2\"W"
                 });
 
-                psychologistsGroup.Add(new Psychologist()
+                psychologistsGroup.Add(new PsychologistModel()
                 {
                     Id = 5,
                     CelphoneNumber = 11986579776,
