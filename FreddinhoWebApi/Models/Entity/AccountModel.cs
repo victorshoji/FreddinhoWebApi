@@ -8,7 +8,7 @@ namespace FreddinhoWebApi.Models.Entity
 
         public string? Name { get; set; }
 
-        public long CelphoneNumber { get; set; }
+        public long CellphoneNumber { get; set; }
 
         public char Gender { get; set; }
 
@@ -17,5 +17,8 @@ namespace FreddinhoWebApi.Models.Entity
         public string? Email { get; set; }
 
         public string? Password { get; set; }
+
+
+        public ICollection<Dependent>? Dependents { get; set; }
     }
 }
