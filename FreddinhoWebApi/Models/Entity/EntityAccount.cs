@@ -2,7 +2,7 @@
 
 namespace FreddinhoWebApi.Models.Entity
 {
-    public class AccountModel : IAccount
+    public class EntityAccount : IAccount
     {
         public int? Id { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace FreddinhoWebApi.Models.Entity
 {
-    public class Dependent : IAccount
+    public class Dependent
     {
         public int? Id { get; set; }
 
@@ -14,6 +14,6 @@ namespace FreddinhoWebApi.Models.Entity
 
 
         public int AccountModelId { get; set; }
-        public AccountModel? AccountModel { get; set; }
+        public EntityAccount? AccountModel { get; set; }
     }
 }

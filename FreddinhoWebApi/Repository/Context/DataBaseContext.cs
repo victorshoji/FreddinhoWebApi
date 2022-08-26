@@ -10,7 +10,7 @@ namespace FreddinhoWebApi.Repository.Context
             : base(preferences) { }
 
 
-        public DbSet<AccountModel>? DbAccount { get; set; }
+        public DbSet<EntityAccount>? DbAccount { get; set; }
 
         public DbSet<Dependent>? DbDependent { get; set; }
 
@@ -25,25 +25,25 @@ namespace FreddinhoWebApi.Repository.Context
 
         private void SetAccountBuilder(ModelBuilder builder)
         {
-            builder.Entity<AccountModel>().ToTable("T_ACCOUNT");
+            builder.Entity<EntityAccount>().ToTable("T_ACCOUNT");
 
-            builder.Entity<AccountModel>().Property(a => a.Name)
+            builder.Entity<EntityAccount>().Property(a => a.Name)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(80);
 
-            builder.Entity<AccountModel>().Property(a => a.CellphoneNumber)
+            builder.Entity<EntityAccount>().Property(a => a.CellphoneNumber)
                 .IsRequired();
 
-            builder.Entity<AccountModel>().Property(a => a.Gender)
+            builder.Entity<EntityAccount>().Property(a => a.Gender)
                 .IsRequired();
 
-            builder.Entity<AccountModel>().Property(a => a.Email)
+            builder.Entity<EntityAccount>().Property(a => a.Email)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(200);
 
-            builder.Entity<AccountModel>().Property(a => a.Password)
+            builder.Entity<EntityAccount>().Property(a => a.Password)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(250);
@@ -65,7 +65,7 @@ namespace FreddinhoWebApi.Repository.Context
                 .IsRequired();
 
             builder.Entity<Dependent>()
-                .HasOne<AccountModel>(d => d.AccountModel)
+                .HasOne<EntityAccount>(d => d.AccountModel)
                 .WithMany(a => a.Dependents)
                 .HasForeignKey(fk => fk.AccountModelId);
         }

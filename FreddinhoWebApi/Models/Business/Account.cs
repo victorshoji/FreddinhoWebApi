@@ -1,6 +1,8 @@
-﻿namespace FreddinhoWebApi.Interfaces
+﻿using FreddinhoWebApi.Interfaces;
+
+namespace FreddinhoWebApi.Models.Entity
 {
-    public interface IAccount
+    public class Account : IAccount
     {
         public int? Id { get; set; }
 
