@@ -21,7 +21,7 @@ namespace FreddinhoWebApi.Controllers
 
 
         [HttpPost("/createnewaccount")]
-        public async Task<(bool, string)> Post([FromBody] EntityAccount account) =>
+        public async Task<(bool, string)> Post([FromBody] Account account) =>
             await _repository.InsertUser(account);
 
 

@@ -2,7 +2,7 @@
 
 namespace FreddinhoWebApi.Models.Entity
 {
-    public class EntityAccount : IAccount
+    public class Account : IAccount
     {
         public int? Id { get; set; }
 
@@ -10,7 +10,7 @@ namespace FreddinhoWebApi.Models.Entity
 
         public long CellphoneNumber { get; set; }
 
-        public char Gender { get; set; }
+        public char? Gender { get; set; }
 
         public DateTime BirthDate { get; set; }
 

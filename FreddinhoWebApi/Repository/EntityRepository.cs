@@ -20,16 +20,16 @@ namespace FreddinhoWebApi.Repository
                         && u.Password == EncryptPassword(password))
                     .ToListAsync()).Count >= 1;
 
-        public async Task<(bool, string)> InsertUser(IAccount account) 
+        public async Task<(bool, string)> InsertUser(Account account) 
         {
             try
             {
                 if ((await UserExist(account.Email, account.Password)))
                     return new(false, "Usuário já cadastrado no Freddinho!");
 
-                var user = ConvertToEntityClass(account);
+                account.Password = EncryptPassword(account.Password);
 
-                await _repository.DbAccount.AddAsync(user);
+                await _repository.DbAccount.AddAsync(account);
 
                 await _repository.SaveChangesAsync();
 
@@ -40,17 +40,6 @@ namespace FreddinhoWebApi.Repository
                 return new(false, ex.Message);
             }   
         }
-
-        private EntityAccount ConvertToEntityClass(IAccount account) =>
-            new() 
-            {
-                Name = account.Name,
-                CellphoneNumber = account.CellphoneNumber,
-                Email = account.Email,
-                BirthDate = account.BirthDate,
-                Gender = account.Gender,
-                Password = EncryptPassword(account.Password)
-            };
 
         private string EncryptPassword(string password) =>
             Encrypt.EncryptData(password);
