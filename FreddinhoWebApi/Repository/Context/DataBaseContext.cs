@@ -27,6 +27,9 @@ namespace FreddinhoWebApi.Repository.Context
         {
             builder.Entity<Account>().ToTable("T_ACCOUNT");
 
+            builder.Entity<Account>().Property(a => a.Id)
+                .HasDefaultValueSql("SELECT SQ_ACCOUNT.NEXTVAL");
+
             builder.Entity<Account>().Property(a => a.Name)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
@@ -52,6 +55,9 @@ namespace FreddinhoWebApi.Repository.Context
         private void SetDependentBuilder(ModelBuilder builder)
         {
             builder.Entity<Dependent>().ToTable("T_DEPENDENT");
+
+            builder.Entity<Dependent>().Property(a => a.Id)
+                .HasDefaultValueSql("SELECT SQ_DEPENDENT.NEXTVAL");
 
             builder.Entity<Dependent>().Property(d => d.BirthYear)
                 .IsRequired();

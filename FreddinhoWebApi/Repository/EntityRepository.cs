@@ -1,5 +1,4 @@
-﻿using FreddinhoWebApi.Interfaces;
-using FreddinhoWebApi.Models.Entity;
+﻿using FreddinhoWebApi.Models.Entity;
 using FreddinhoWebApi.Repository.Context;
 using FreddinhoWebApi.Util;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +28,7 @@ namespace FreddinhoWebApi.Repository
 
                 account.Password = EncryptPassword(account.Password);
 
-                await _repository.DbAccount.AddAsync(account);
+                await _repository.DbAccount.AddRangeAsync(account);
 
                 await _repository.SaveChangesAsync();
 
@@ -41,7 +40,7 @@ namespace FreddinhoWebApi.Repository
             }   
         }
 
-        private string EncryptPassword(string password) =>
+        private static string EncryptPassword(string password) =>
             Encrypt.EncryptData(password);
 
         public async Task<(bool, string)> InsertUser(Dependent dependent)
